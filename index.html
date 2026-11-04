@@ -71,13 +71,14 @@ button:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
 .dia .node{cursor:pointer;transition:opacity .25s;outline:none}
 .dia .node:focus-visible rect{stroke-width:2.5}
 .chat{border:1px solid var(--line);border-radius:14px;overflow:hidden;font-family:var(--app-font)}
-.hdr{background:var(--hdr);color:var(--on-hdr);padding:10px 14px;display:grid;grid-template-columns:auto auto minmax(0,1fr) auto;grid-template-areas:"back av mid next";align-items:center;gap:6px 12px;transition:background .3s}
-:root.im .hdr{grid-template-columns:auto minmax(0,1fr) auto;grid-template-areas:"back av next" "back mid next";text-align:center;border-bottom:1px solid var(--line)}
-:root.im .av{justify-self:center}
-.hmid{grid-area:mid;min-width:0}
-.hback{grid-area:back;color:var(--hlink);font:600 15px var(--app-font);display:inline-flex;align-items:center;gap:2px;padding:6px 2px}
+.hdr{background:var(--hdr);color:var(--on-hdr);padding:10px 14px;display:grid;grid-template-columns:1fr minmax(0,auto) 1fr;grid-template-areas:"back center next";align-items:center;gap:6px 12px;transition:background .3s}
+:root.im .hdr{text-align:center;border-bottom:1px solid var(--line)}
+.hcenter{grid-area:center;min-width:0;display:flex;align-items:center;gap:12px}
+:root.im .hcenter{flex-direction:column;gap:4px}
+.hmid{min-width:0}
+.hback{grid-area:back;justify-self:start;color:var(--hlink);font:600 15px var(--app-font);display:inline-flex;align-items:center;gap:2px;padding:6px 2px}
 .hdr button:focus-visible{outline-color:var(--hdot-on)}
-.av{grid-area:av;width:38px;height:38px;border-radius:50%;background:var(--av);display:inline-flex;align-items:center;justify-content:center;color:#fff;flex:none;font-size:20px}
+.av{width:38px;height:38px;border-radius:50%;background:var(--av);display:inline-flex;align-items:center;justify-content:center;color:#fff;flex:none;font-size:20px}
 .htitle{font-size:16px;font-weight:600;line-height:1.3}
 .hstep{font-size:12px;display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px}
 :root.im .hstep{justify-content:center}
@@ -99,7 +100,7 @@ button:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
 .dots{display:inline-flex;gap:5px}
 .dots button{width:8px;height:8px;border-radius:50%;background:var(--hdot);padding:0}
 .dots button.on{background:var(--hdot-on)}
-.pri{grid-area:next;background:var(--hbtn-bg);color:var(--hbtn-fg);border-radius:999px;padding:8px 18px;font:600 15px var(--app-font);transition:background .25s}
+.pri{grid-area:next;justify-self:end;background:var(--hbtn-bg);color:var(--hbtn-fg);border-radius:999px;padding:8px 18px;font:600 15px var(--app-font);transition:background .25s}
 @media (max-width:480px){.hback span{display:none}:root:not(.im) .av{display:none}}
 
 .trio{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px}
@@ -182,8 +183,10 @@ footer a{color:var(--fg-2)}
 <div class="chat" aria-live="polite">
 <div class="hdr">
 <button id="prev" class="hback" type="button"><svg class="ic" aria-hidden="true"><use href="#i-back"/></svg><span>Back</span></button>
+<div class="hcenter">
 <span class="av"><svg class="ic" aria-hidden="true"><use id="av-ic" href="#i-phone"/></svg></span>
 <div class="hmid"><div id="title" class="htitle">You type the message</div><div class="hstep"><span id="stepno">Step 1 of 7</span><span id="dots" class="dots" role="group" aria-label="Steps"></span></div></div>
+</div>
 <button id="next" class="pri" type="button">Next</button>
 </div>
 <div class="explain">
