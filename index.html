@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>WhatsApp vs iMessage</title>
+<meta name="description" content="Follow &quot;Hey, how are you?&quot; through WhatsApp and iMessage, and see what each server does and what it can see.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="WhatsApp vs iMessage">
+<meta property="og:description" content="Follow &quot;Hey, how are you?&quot; through WhatsApp and iMessage, and see what each server does and what it can see.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 4h18v12H9l-6 5V4z' fill='%23008069'/%3E%3C/svg%3E">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@400&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: one 760px reading column. The interactive journey comes first, reference sections follow. App tokens (WhatsApp default, iMessage via :root.im) re-skin the explorer and the page accent. */
+:root{
+--bg:#F6F7F6;--fg:#15191B;--fg-2:#566065;--fg-3:#737D82;--line:#DDE1E0;--line-strong:#C3C9C8;--panel:#FFFFFF;
+--gray-fill:#F1F2F1;--gray-st:#8A9194;--gray-t:#3A4043;--gray-s:#6A7276;
+--wa-dot:#25D366;--im-dot:#0A84FF;
+--display:"Schibsted Grotesk","Helvetica Neue",Arial,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+--brand:#008069;--on-brand:#fff;--hdr:#008069;--on-hdr:#fff;--av:#3A9C88;--chat:#EFEAE2;--sys:#fff;--out:#D9FDD3;--on-out:#111B21;--in:#fff;--on-in:#111B21;--meta:#5F6F78;--srv:#D9FDD3;--srv-st:#008069;--srv-t:#075E54;--srv-s:#00715D;--wire:#00A884;--warn:#B35C00;--sms:#34C759;--sms-t:#248A3D;
+--app-font:"Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;--r-out:8px 0 8px 8px;--r-in:0 8px 8px 8px}
+:root.im{--brand:#007AFF;--on-brand:#fff;--hdr:#F2F2F7;--on-hdr:#000;--av:#A2A2A8;--chat:#fff;--sys:#F2F2F7;--out:#007AFF;--on-out:#fff;--in:#E9E9EB;--on-in:#000;--meta:#6E6E73;--srv:#E5F0FF;--srv-st:#007AFF;--srv-t:#003F8A;--srv-s:#0060D0;--wire:#007AFF;
+--app-font:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",sans-serif;--r-out:18px 18px 4px 18px;--r-in:18px 18px 18px 4px}
+@media (prefers-color-scheme:dark){
+:root:not([data-theme="light"]){--bg:#101315;--fg:#E7EBED;--fg-2:#A0A9AE;--fg-3:#838D92;--line:#262C30;--line-strong:#3A4247;--panel:#171B1E;--gray-fill:#22272A;--gray-st:#6E777C;--gray-t:#E2E6E8;--gray-s:#A5AEB2;--brand:#00A884;--on-brand:#111B21;--hdr:#202C33;--on-hdr:#E9EDEF;--av:#374248;--chat:#0B141A;--sys:#182229;--out:#005C4B;--on-out:#E9EDEF;--in:#202C33;--on-in:#E9EDEF;--meta:#8696A0;--srv:#103B35;--srv-st:#00A884;--srv-t:#E9EDEF;--srv-s:#7FD9C3;--wire:#00A884;--warn:#FFB340;--sms:#30D158;--sms-t:#30D158;color-scheme:dark}
+:root.im:not([data-theme="light"]){--brand:#0A84FF;--on-brand:#fff;--hdr:#1C1C1E;--on-hdr:#fff;--av:#636366;--chat:#000;--sys:#1C1C1E;--out:#0A84FF;--on-out:#fff;--in:#262629;--on-in:#fff;--meta:#98989F;--srv:#0B2A4F;--srv-st:#0A84FF;--srv-t:#fff;--srv-s:#8EC5FF;--wire:#0A84FF}
+}
+:root[data-theme="dark"]{--bg:#101315;--fg:#E7EBED;--fg-2:#A0A9AE;--fg-3:#838D92;--line:#262C30;--line-strong:#3A4247;--panel:#171B1E;--gray-fill:#22272A;--gray-st:#6E777C;--gray-t:#E2E6E8;--gray-s:#A5AEB2;--brand:#00A884;--on-brand:#111B21;--hdr:#202C33;--on-hdr:#E9EDEF;--av:#374248;--chat:#0B141A;--sys:#182229;--out:#005C4B;--on-out:#E9EDEF;--in:#202C33;--on-in:#E9EDEF;--meta:#8696A0;--srv:#103B35;--srv-st:#00A884;--srv-t:#E9EDEF;--srv-s:#7FD9C3;--wire:#00A884;--warn:#FFB340;--sms:#30D158;--sms-t:#30D158;color-scheme:dark}
+:root.im[data-theme="dark"]{--brand:#0A84FF;--on-brand:#fff;--hdr:#1C1C1E;--on-hdr:#fff;--av:#636366;--chat:#000;--sys:#1C1C1E;--out:#0A84FF;--on-out:#fff;--in:#262629;--on-in:#fff;--meta:#98989F;--srv:#0B2A4F;--srv-st:#0A84FF;--srv-t:#fff;--srv-s:#8EC5FF;--wire:#0A84FF}
+
+body{background:var(--bg);color:var(--fg);font:400 17px/1.6 var(--body);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:40px 64px;transition:background .3s}
+main{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:56px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;color:var(--fg)}
+h1{font-size:clamp(30px,5.4vw,46px);line-height:1.08;font-weight:700;letter-spacing:-0.015em}
+h2{font-size:24px;line-height:1.2;font-weight:650}
+h3{font-size:17px;line-height:1.3;font-weight:600}
+p{margin:0}
+a{color:var(--brand)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.eyebrow{font:600 13px var(--display);letter-spacing:.08em;text-transform:uppercase;color:var(--brand)}
+.intro{display:flex;flex-direction:column;gap:14px}
+.lede{font-size:19px;line-height:1.55;color:var(--fg-2);max-width:62ch}
+section{display:flex;flex-direction:column;gap:16px}
+section>p{max-width:65ch;color:var(--fg-2)}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+button:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+.ic{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;vertical-align:-0.15em;flex:none}
+
+.explorer{display:flex;flex-direction:column;gap:12px}
+.seg{display:inline-flex;align-self:flex-start;gap:2px;padding:3px;border:1px solid var(--line-strong);border-radius:999px;background:var(--panel)}
+.seg button{border-radius:999px;padding:7px 16px;color:var(--fg-2);font:500 15px var(--display);display:inline-flex;align-items:center;gap:8px;transition:background .25s,color .25s}
+.seg button[aria-pressed="true"]{background:var(--brand);color:var(--on-brand)}
+.seg .dot-wa,.seg .dot-im{width:9px;height:9px;border-radius:50%;display:inline-block}
+.seg .dot-wa{background:var(--wa-dot)}.seg .dot-im{background:var(--im-dot)}
+.dia{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:8px;overflow-x:auto}
+.dia svg{display:block;width:100%;min-width:560px;height:auto}
+.dia .t,.dia .ts,.dia .th{font-family:var(--display)}
+.dia .th{font-size:14px;font-weight:600;fill:var(--fg)}
+.dia .ts{font-size:12px;font-weight:400;fill:var(--fg-2)}
+.dia .box{fill:var(--panel);stroke:var(--line-strong)}
+.dia .gray rect{fill:var(--gray-fill);stroke:var(--gray-st)}
+.dia .gray .th{fill:var(--gray-t)}.dia .gray .ts{fill:var(--gray-s)}
+.dia .srv{fill:var(--srv);stroke:var(--srv-st);transition:fill .3s,stroke .3s}
+.dia .srv-t{fill:var(--srv-t)}.dia .srv-s{fill:var(--srv-s)}
+.dia .arr{stroke:var(--wire);stroke-width:1.5;fill:none}
+.dia .smst{fill:var(--sms-t)}
+.dia .node{cursor:pointer;transition:opacity .25s;outline:none}
+.dia .node:focus-visible rect{stroke-width:2.5}
+.chat{border:1px solid var(--line);border-radius:14px;overflow:hidden;font-family:var(--app-font)}
+.hdr{background:var(--hdr);color:var(--on-hdr);padding:10px 16px;display:flex;align-items:center;gap:12px;transition:background .3s}
+:root.im .hdr{flex-direction:column;gap:4px;text-align:center;border-bottom:1px solid var(--line)}
+.av{width:38px;height:38px;border-radius:50%;background:var(--av);display:inline-flex;align-items:center;justify-content:center;color:#fff;flex:none;font-size:20px}
+.htitle{font-size:16px;font-weight:600;line-height:1.3}
+.hstep{font-size:12px}
+.body{background:var(--chat);padding:14px 16px 20px;min-height:260px;transition:background .3s}
+.lab{font-size:12px;color:var(--meta);margin:14px 0 4px}
+.row{display:flex}
+.b{display:inline-block;padding:7px 12px;font-size:15px;line-height:1.4;max-width:85%}
+.out{background:var(--out);color:var(--on-out);border-radius:var(--r-out)}
+.in{background:var(--in);color:var(--on-in);border-radius:var(--r-in)}
+.lock{background:var(--sys);color:var(--meta);border:1px dashed var(--meta);font-family:var(--mono);font-size:13px;border-radius:var(--r-out)}
+.sms{background:var(--sms);color:#fff;border-radius:18px 18px 4px 18px}
+.tm{font-size:11px;color:var(--meta);margin-left:10px;white-space:nowrap}
+.desc{background:var(--sys);color:var(--on-in);border-radius:12px;padding:12px 14px;font-size:15px;line-height:1.6;margin-top:10px}
+.pill{display:inline-flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px;font-size:12px;padding:4px 10px;border-radius:8px;background:var(--sys);color:var(--meta)}
+.chip{display:inline-block;font-size:12px;background:var(--sys);color:var(--meta);border-radius:999px;padding:3px 10px;margin:0 6px 6px 0}
+.note{display:flex;align-items:center;gap:10px;background:var(--sys);color:var(--on-in);border-radius:14px;padding:10px 14px;font-size:14px}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.dots{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
+.dots button{width:10px;height:10px;border-radius:50%;background:var(--line-strong);padding:0}
+.dots button.on{background:var(--brand)}
+.pri{background:var(--brand);color:var(--on-brand);border-radius:999px;padding:8px 20px;font:600 15px var(--display);transition:background .25s}
+.ghost{color:var(--brand);padding:8px 4px;font:600 15px var(--display);display:inline-flex;align-items:center;gap:4px}
+
+.trio{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px}
+.trio>div{border-top:1px solid var(--line-strong);padding-top:14px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.who{font:500 13px var(--display);color:var(--fg-3)}
+.trio p:last-child{color:var(--fg-2);font-size:16px}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:15px;line-height:1.5}
+th,td{text-align:left;vertical-align:top;padding:12px 16px;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+thead th{font:600 14px var(--display);color:var(--fg);background:var(--panel)}
+thead th span{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:8px}
+tbody th{font:600 14px var(--display);color:var(--fg-2);width:22%}
+.catches{display:flex;flex-direction:column;gap:20px}
+.catch{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 14px}
+.catch .ic{font-size:22px;color:var(--warn);grid-row:span 2;margin-top:2px}
+.catch p{color:var(--fg-2)}
+.catch ul{margin:6px 0 0;padding-left:20px;color:var(--fg-2);display:flex;flex-direction:column;gap:6px}
+footer{border-top:1px solid var(--line);padding-top:18px;font-size:14px;color:var(--fg-3);display:flex;flex-direction:column;gap:8px}
+footer a{color:var(--fg-2)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+<symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+<symbol id="i-unlock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 7.5-2"/></symbol>
+<symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z"/><circle cx="12" cy="12" r="2.5"/></symbol>
+<symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 4 2.5 20h19L12 4z"/><path d="M12 10v4M12 17v.5"/></symbol>
+<symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 16v-5a6 6 0 0 1 12 0v5l1.5 2h-15L6 16z"/><path d="M10 20a2 2 0 0 0 4 0"/></symbol>
+<symbol id="i-photo" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.5"/><path d="m4 17 5-5 4 4 3-3 4 4"/></symbol>
+<symbol id="i-down" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></symbol>
+<symbol id="i-back" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></symbol>
+<symbol id="i-phone" viewBox="0 0 24 24"><rect x="7" y="3" width="10" height="18" rx="2"/><path d="M11 18h2"/></symbol>
+<symbol id="i-book" viewBox="0 0 24 24"><path d="M6 4h11a1 1 0 0 1 1 1v15H7a2 2 0 0 1-2-2V5a1 1 0 0 1 1-1z"/><circle cx="12" cy="10" r="2"/><path d="M9 15a3 3 0 0 1 6 0"/></symbol>
+<symbol id="i-send" viewBox="0 0 24 24"><path d="M4 12 20 4l-4 16-4-7-8-1z"/><path d="M12 13l8-9"/></symbol>
+<symbol id="i-devices" viewBox="0 0 24 24"><rect x="3" y="5" width="13" height="10" rx="1.5"/><path d="M2 18h15"/><rect x="18" y="8" width="4" height="10" rx="1"/></symbol>
+<symbol id="i-msg" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4V5z"/></symbol>
+</svg>
+
+<main>
+<header class="intro">
+<p class="eyebrow">Messaging security, explained simply</p>
+<h1>How "Hey, how are you?" gets to your friend</h1>
+<p class="lede">WhatsApp and iMessage both lock your message on your phone before it leaves. Pick an app, then step through the journey to see what each server does and exactly what it receives.</p>
+</header>
+
+<section class="explorer" aria-label="Message journey explorer">
+<div class="seg" role="group" aria-label="Choose app">
+<button id="btn-wa" type="button" aria-pressed="true"><span class="dot-wa" aria-hidden="true"></span>WhatsApp</button>
+<button id="btn-im" type="button" aria-pressed="false"><span class="dot-im" aria-hidden="true"></span>iMessage</button>
+</div>
+
+<div class="dia">
+<svg id="dia" viewBox="0 0 680 312" role="group" aria-label="Message flow diagram. Select a part to jump to its step.">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<rect x="230" y="20" width="220" height="272" rx="16" fill="none" stroke="var(--line-strong)" stroke-width="1" stroke-dasharray="4 4"/>
+<text id="t-cont" class="ts" x="340" y="38" text-anchor="middle" dominant-baseline="central">Meta data centres</text>
+<g id="g-dir" class="node" data-box="dir" tabindex="0" role="button" aria-label="Padlock directory"><rect class="srv" x="250" y="56" width="180" height="56" rx="8" stroke-width="1"/><text id="t-dir-1" class="th srv-t" x="340" y="74" text-anchor="middle" dominant-baseline="central">Key server</text><text id="t-dir-2" class="ts srv-s" x="340" y="94" text-anchor="middle" dominant-baseline="central">Padlock directory</text></g>
+<g id="g-relay" class="node" data-box="relay" tabindex="0" role="button" aria-label="Post office"><rect class="srv" x="250" y="136" width="180" height="56" rx="8" stroke-width="1"/><text id="t-relay-1" class="th srv-t" x="340" y="154" text-anchor="middle" dominant-baseline="central">Chat servers</text><text id="t-relay-2" class="ts srv-s" x="340" y="174" text-anchor="middle" dominant-baseline="central">Post office</text></g>
+<g id="g-media" class="node" data-box="media" tabindex="0" role="button" aria-label="Photo and file locker"><rect class="srv" x="250" y="216" width="180" height="56" rx="8" stroke-width="1"/><text id="t-media-1" class="th srv-t" x="340" y="234" text-anchor="middle" dominant-baseline="central">Media servers</text><text id="t-media-2" class="ts srv-s" x="340" y="254" text-anchor="middle" dominant-baseline="central">Photo and file locker</text></g>
+<g id="g-sender" class="node" data-box="sender" tabindex="0" role="button" aria-label="Your phone"><rect class="box" x="40" y="136" width="160" height="56" rx="8" stroke-width="1"/><text id="t-sender-1" class="th" x="120" y="154" text-anchor="middle" dominant-baseline="central">Sender app</text><text class="ts" x="120" y="174" text-anchor="middle" dominant-baseline="central">Your phone</text></g>
+<g id="g-top-wa" class="node gray" data-box="top" tabindex="0" role="button" aria-label="Push doorbell"><rect x="480" y="56" width="160" height="56" rx="8" stroke-width="1"/><text class="th" x="560" y="74" text-anchor="middle" dominant-baseline="central">APNs / FCM</text><text class="ts" x="560" y="94" text-anchor="middle" dominant-baseline="central">Doorbell for the app</text></g>
+<g id="g-top-im" class="node" data-box="top" tabindex="0" role="button" aria-label="SMS or RCS fallback" style="display:none"><rect x="480" y="56" width="160" height="56" rx="8" fill="none" stroke="var(--sms)" stroke-width="1" stroke-dasharray="4 4"/><text class="th smst" x="560" y="74" text-anchor="middle" dominant-baseline="central">SMS / RCS fallback</text><text class="ts" x="560" y="94" text-anchor="middle" dominant-baseline="central">If no Apple device</text></g>
+<g id="g-recip" class="node" data-box="recip" tabindex="0" role="button" aria-label="Your friend's devices"><rect class="box" x="480" y="136" width="160" height="56" rx="8" stroke-width="1"/><text class="th" x="560" y="154" text-anchor="middle" dominant-baseline="central">Friend's devices</text><text id="t-recip-2" class="ts" x="560" y="174" text-anchor="middle" dominant-baseline="central">Phone + web/desktop</text></g>
+<path d="M120 136 L120 84 L248 84" class="arr" marker-end="url(#arrow)"/>
+<line x1="200" y1="164" x2="248" y2="164" class="arr" marker-end="url(#arrow)"/>
+<path d="M120 192 L120 244 L248 244" class="arr" marker-end="url(#arrow)"/>
+<line x1="432" y1="164" x2="478" y2="164" class="arr" marker-end="url(#arrow)"/>
+<path d="M432 244 L560 244 L560 194" class="arr" marker-end="url(#arrow)"/>
+<path id="a-wa-1" d="M432 150 L455 150 L455 84 L478 84" class="arr" marker-end="url(#arrow)"/>
+<line id="a-wa-2" x1="560" y1="112" x2="560" y2="134" class="arr" marker-end="url(#arrow)"/>
+<line id="a-im-1" x1="432" y1="84" x2="478" y2="84" class="arr" stroke-dasharray="4 4" marker-end="url(#arrow)" style="display:none"/>
+</svg>
+</div>
+
+<div class="chat" aria-live="polite">
+<div class="hdr">
+<span class="av"><svg class="ic" aria-hidden="true"><use id="av-ic" href="#i-phone"/></svg></span>
+<div><div id="title" class="htitle">You type the message</div><div id="stepno" class="hstep">Step 1 of 7</div></div>
+</div>
+<div class="body">
+<div style="text-align:center"><span id="badge" class="pill">Can read it: yes · Only on your phone</span></div>
+<p id="does" class="desc">You type a message to a friend and press send. Right now it exists only on your phone, in plain text.</p>
+<div id="payload"><div class="lab">What it has</div><div class="row" style="justify-content:flex-end"><div class="b out">Hey, how are you?<span class="tm">2:14 pm</span></div></div></div>
+</div>
+</div>
+
+<div class="nav">
+<button id="prev" class="ghost" type="button"><svg class="ic" aria-hidden="true"><use href="#i-back"/></svg>Back</button>
+<div id="dots" class="dots"></div>
+<button id="next" class="pri" type="button">Next</button>
+</div>
+</section>
+
+<section>
+<h2>The short version</h2>
+<p>Think of each message as a locked letter inside an envelope. Your phone locks the letter before it leaves, so no server ever sees "Hey, how are you?" as written.</p>
+<div class="trio">
+<div><h3>Padlock directory</h3><p class="who">WhatsApp key server · Apple IDS</p><p>Gives your phone your friend's open padlocks. It never touches the message.</p></div>
+<div><h3>Post office</h3><p class="who">WhatsApp chat servers · Apple APNs</p><p>Carries the locked letter. It can read the envelope (who sent it, who it's for, and when) but not the letter.</p></div>
+<div><h3>File locker</h3><p class="who">WhatsApp media servers · iCloud</p><p>Stores locked photos and files. The key travels inside the locked message, so the locker can't open them.</p></div>
+</div>
+</section>
+
+<section>
+<h2>Key differences</h2>
+<div class="tablewrap">
+<table>
+<thead><tr><th scope="col"><span class="sr-only">Topic</span></th><th scope="col"><span style="background:var(--wa-dot)"></span>WhatsApp</th><th scope="col"><span style="background:var(--im-dot)"></span>iMessage</th></tr></thead>
+<tbody>
+<tr><th scope="row">Works on</th><td>Android, iPhone, web and desktop</td><td>Apple devices only</td></tr>
+<tr><th scope="row">Your identity</th><td>Your phone number</td><td>Your Apple Account, plus your phone number or email</td></tr>
+<tr><th scope="row">Delivery</th><td>Its own chat servers. Push notifications only wake the app up.</td><td>Apple's push service (APNs) carries the message itself</td></tr>
+<tr><th scope="row">Encryption</th><td>Signal Protocol, the same open standard the Signal app uses</td><td>Apple's PQ3, built to hold up against future quantum computers</td></tr>
+<tr><th scope="row">Group chats</th><td>Your phone locks the message once and the servers copy it to each member</td><td>Your phone locks a separate copy for every device in the group</td></tr>
+<tr><th scope="row">Photos and files</th><td>WhatsApp media servers</td><td>iCloud</td></tr>
+<tr><th scope="row">If it can't deliver</th><td>Waits on the server until your friend is online (up to 30 days)</td><td>Falls back to a regular text message, the green bubble</td></tr>
+<tr><th scope="row">Chat history</th><td>Kept on your phone, with optional backup to Google Drive or iCloud</td><td>Can sync across all your Apple devices with Messages in iCloud</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section>
+<h2>When someone else can read it</h2>
+<p>Messages are locked while they travel. There are two common cases where the words can still end up readable by someone other than your friend.</p>
+<div class="catches">
+<div class="catch"><svg class="ic" aria-hidden="true"><use href="#i-msg"/></svg><h3>Green-bubble texts</h3><p>When iMessage can't find an Apple device for your friend, it sends a regular SMS through your mobile carrier. A plain SMS isn't locked, so the carrier can read it.</p></div>
+<div class="catch"><svg class="ic" aria-hidden="true"><use href="#i-alert"/></svg><h3>Cloud backups</h3><div><p>A backup of your chat history may not be locked the same way.</p>
+<ul>
+<li>WhatsApp backups to Google Drive or iCloud aren't locked unless you turn on End-to-end encrypted backup (Settings &gt; Chats &gt; Chat backup).</li>
+<li>On iPhone, if iCloud Backup is on, Apple keeps a copy of the key to your messages. Turning on Advanced Data Protection (Settings &gt; your name &gt; iCloud) closes that gap.</li>
+</ul></div></div>
+</div>
+</section>
+
+<footer>
+<p>A simplified guide for a non-technical audience, based on public security documentation from Meta and Apple (November 2026). Not affiliated with Meta, WhatsApp or Apple.</p>
+<p>Sources: <a href="https://www.whatsapp.com/security" target="_blank" rel="noopener">WhatsApp security</a> · <a href="https://support.apple.com/guide/security/welcome/web" target="_blank" rel="noopener">Apple Platform Security</a> · <a href="https://security.apple.com/blog/imessage-pq3/" target="_blank" rel="noopener">iMessage PQ3</a></p>
+</footer>
+</main>
+
+<script>
+const M='Hey, how are you?';
+const C='a3f9 07c2 e1b8 5d64 9f0a c7e3 28b1 4d96 …';
+const A={
+wa:{cont:'Meta data centres',L:{dir:['Key server','Padlock directory'],relay:['Chat servers','Post office'],media:['Media servers','Photo and file locker'],sender:'Sender app',recip:'Phone + web/desktop'},S:[
+{b:'sender',t:'You type the message',r:'ok',n:'Only on your phone',d:`You type a message to a friend and press send. Right now it exists only on your phone, in plain text.`,p:{k:'plain'}},
+{b:'dir',t:"Your phone fetches your friend's padlocks",r:'no',n:'Your message has not left your phone yet',d:`The key server is a public directory of padlocks. Each of your friend's devices has posted an open padlock here (its "public key"). Anyone can snap the padlock shut, but only your friend's device has the key that opens it. Your phone asks for the padlocks that belong to your friend's number.`,p:{k:'look',ask:"Your friend's phone number",back:'One padlock for each of their devices'}},
+{b:'sender',t:'Your phone locks the message',r:'ok',n:'Still only on your phone',d:`Your phone scrambles the message with your friend's padlock, using the Signal Protocol. It makes a separate locked copy for each of your friend's devices. The lock changes with every message, so cracking one message would not open the others.`,p:{k:'tf'}},
+{b:'relay',t:'The chat servers deliver the locked message',r:'no',n:'Sees the envelope, not the letter',d:`This is WhatsApp's post office. Every WhatsApp app that is online keeps an open line to these servers. They take the locked message, read the address on the envelope, and pass it on. If your friend is offline, they hold it (up to 30 days) and delete it once it is delivered. They also send the grey ticks back to you.`,p:{k:'cipher',chips:['From: your number',"To: your friend's number",'Time sent','Size']}},
+{b:'top',t:"A doorbell wakes your friend's phone",r:'no',n:'Only a wake-up signal',d:`Phones put apps to sleep to save battery. So WhatsApp asks Apple (APNs, on iPhones) or Google (FCM, on Android) to ring a doorbell on your friend's phone. That wakes WhatsApp up so it can collect the message from the post office.`,p:{k:'wake',title:'Wake-up signal for 1 device',text:'Nothing readable from your message'}},
+{b:'recip',t:"Your friend's phone unlocks it",r:'ok',n:'Only on their devices',d:`WhatsApp on your friend's phone collects its locked copy and opens it with its private key, which never leaves that device. Their laptop or WhatsApp Web got its own locked copy and does the same.`,p:{k:'rv'}},
+{b:'media',t:'Side trip: sending a photo',r:'no',n:'Stores a file it cannot open',d:`Photos, videos and voice notes are too big to go inside a message. Your phone locks the photo with a brand-new one-time key and uploads the locked file to the media servers. That key and the file's location travel inside the locked message, so only your friend can find and open the photo.`,p:{k:'file'}}
+]},
+im:{cont:'Apple services',L:{dir:['Apple IDS','Padlock directory'],relay:['APNs','Post office'],media:['iCloud','Photo and file locker'],sender:'Messages app',recip:'iPhone, iPad, Mac'},S:[
+{b:'sender',t:'You type the message',r:'ok',n:'Only on your phone',d:`You type a message to a friend and press send. Right now it exists only on your phone, in plain text.`,p:{k:'plain'}},
+{b:'dir',t:"Your phone checks Apple's directory",r:'no',n:'Your message has not left your phone yet',d:`IDS (Identity Directory Service) is Apple's phone book. It links phone numbers and email addresses to Apple devices and their open padlocks ("public keys"). Your phone asks for your friend. If Apple devices come back, the bubble turns blue. If nothing comes back, the message goes as a regular text (green).`,p:{k:'look',ask:"Your friend's phone number or email",back:'A padlock for each of their Apple devices'}},
+{b:'sender',t:'Your phone locks the message',r:'ok',n:'Still only on your phone',d:`Your phone scrambles the message using Apple's PQ3 protocol, which is built to hold up even against future quantum computers. It makes a separate locked copy for every one of your friend's devices, and for your own other devices too, so the chat also shows up on your Mac.`,p:{k:'tf'}},
+{b:'relay',t:'APNs delivers the locked message',r:'no',n:'Sees the envelope, not the letter',d:`APNs (Apple Push Notification service) delivers every notification to every Apple device. Each iPhone, iPad and Mac keeps one open line to it. iMessage hitches a ride on that line: each locked copy travels like a notification, straight to the device. If a device is switched off, APNs holds the message (up to 30 days).`,p:{k:'cipher',chips:['From: your device',"To: each of your friend's devices",'Time sent']}},
+{b:'recip',t:"Each of your friend's devices unlocks its copy",r:'ok',n:'Only on their devices',d:`Your friend's iPhone, iPad and Mac each get their own locked copy. Each one opens it with a private key that never leaves that device. Incoming messages are opened in a sealed-off area of the phone, so a booby-trapped message cannot reach the rest of the system.`,p:{k:'rv'}},
+{b:'media',t:'Side trip: sending a photo',r:'no',n:'Stores a file it cannot open',d:`Your phone locks the photo with a brand-new one-time key and uploads the locked file to iCloud. That key and the file's location travel inside the locked message. Apple stores the file but cannot open it.`,p:{k:'file'}},
+{b:'top',t:"Side trip: your friend doesn't have an iPhone",r:'risk',n:'Your carrier can, for plain SMS',d:`If the directory finds no Apple device, your phone sends a regular text through your mobile carrier. That is the green bubble. A plain SMS is not locked, so the carrier can see the words. RCS, the newer kind of text message, adds features, and whether it is encrypted depends on the phones and carriers involved.`,p:{k:'sms'}}
+]}};
+const ICON={sender:'phone',dir:'book',relay:'send',media:'photo',recip:'devices',top:'bell'};
+let app='wa',i=0;
+const $=id=>document.getElementById(id);
+const ic=(n,s)=>`<svg class="ic" aria-hidden="true"${s?` style="${s}"`:''}><use href="#i-${n}"/></svg>`;
+const tm=c=>app==='wa'?`<span class="tm">2:14 pm${c?' '+ic(c):''}</span>`:'';
+const R=(h,a)=>`<div class="row" style="justify-content:${a==='e'?'flex-end':a==='c'?'center':'flex-start'}">${h}</div>`;
+const L=t=>`<div class="lab">${t}</div>`;
+const dn=t=>`<div class="lab" style="text-align:center;margin:8px 0">${ic('down')} ${t}</div>`;
+const out=()=>`<div class="b out">${M}${tm('clock')}</div>`;
+const inn=()=>`<div class="b in">${M}${tm('')}</div>`;
+const lk=(t,n)=>`<div class="b lock">${ic(n||'lock')} ${t}</div>`;
+function payload(p){
+if(p.k==='plain')return L('What it has')+R(out(),'e');
+if(p.k==='tf')return L('Before locking')+R(out(),'e')+dn("Locked with your friend's padlock")+L('After locking (example, real output is much longer)')+R(lk(C),'e');
+if(p.k==='rv')return L('What arrives')+R(lk(C),'s')+dn('Unlocked with the private key on the device')+L('What your friend sees')+R(inn(),'s');
+if(p.k==='cipher')return L('What it receives')+R(lk(C),'c')+L('What it can see on the envelope')+`<div>${p.chips.map(c=>`<span class="chip">${c}</span>`).join('')}</div>`;
+if(p.k==='look')return L('Your phone asks for')+R(`<div class="b out">${p.ask}</div>`,'e')+L('It sends back')+R(`<div class="b in">${ic('unlock')} ${p.back}</div>`,'s');
+if(p.k==='wake')return L('What it receives')+R(`<div class="note">${ic('bell','font-size:20px;color:var(--brand)')}<div><div style="font-weight:600">${p.title}</div><div style="font-size:12px;color:var(--meta)">${p.text}</div></div></div>`,'s');
+if(p.k==='file')return L('What it receives')+R(lk('photo.jpg, locked: 9c1e 44a0 f7b2 0d3e …','photo'),'c');
+if(p.k==='sms')return L('What the carrier receives')+`<div class="lab" style="text-align:center;margin-top:0">Text Message · SMS</div>`+R(`<div class="b sms">${M}</div>`,'e');
+return '';
+}
+function badge(r,n){
+const s={ok:['var(--brand)','eye','Can read it: yes'],no:['var(--meta)','lock','Can read it: no'],risk:['var(--warn)','alert','Can read it: yes']}[r];
+return `${ic(s[1],`color:${s[0]};font-size:14px`)}<span style="color:${s[0]}">${s[2]}</span><span>· ${n}</span>`;
+}
+function render(){
+const a=A[app],s=a.S[i];
+$('stepno').textContent=`Step ${i+1} of ${a.S.length}`;
+$('title').textContent=s.t;
+$('av-ic').setAttribute('href','#i-'+(s.b==='top'&&app==='im'?'msg':ICON[s.b]));
+$('badge').innerHTML=badge(s.r,s.n);
+$('does').textContent=s.d;
+$('payload').innerHTML=payload(s.p);
+$('next').textContent=i===a.S.length-1?'Start over':'Next';
+const map={sender:'g-sender',dir:'g-dir',relay:'g-relay',media:'g-media',recip:'g-recip',top:app==='wa'?'g-top-wa':'g-top-im'};
+Object.entries(map).forEach(([k,id])=>{const g=$(id),on=k===s.b;g.style.opacity=on?1:0.3;g.querySelector('rect').setAttribute('stroke-width',on?2:1)});
+$('dots').innerHTML=a.S.map((_,j)=>`<button type="button" class="${j===i?'on':''}" data-step="${j}" aria-label="Go to step ${j+1}"${j===i?' aria-current="step"':''}></button>`).join('');
+}
+function setApp(x){
+app=x;i=0;const a=A[x];
+document.documentElement.classList.toggle('im',x==='im');
+$('t-cont').textContent=a.cont;
+['dir','relay','media'].forEach(k=>{$('t-'+k+'-1').textContent=a.L[k][0];$('t-'+k+'-2').textContent=a.L[k][1]});
+$('t-sender-1').textContent=a.L.sender;$('t-recip-2').textContent=a.L.recip;
+const wa=x==='wa';
+['g-top-wa','a-wa-1','a-wa-2'].forEach(id=>$(id).style.display=wa?'':'none');
+['g-top-im','a-im-1'].forEach(id=>$(id).style.display=wa?'none':'');
+['wa','im'].forEach(k=>$('btn-'+k).setAttribute('aria-pressed',String(k===x)));
+render();
+}
+function go(d){const n=A[app].S.length;i=d>0?(i+1)%n:Math.max(0,i-1);render()}
+function jump(b){const j=A[app].S.findIndex(s=>s.b===b);if(j>=0){i=j;render()}}
+$('btn-wa').addEventListener('click',()=>setApp('wa'));
+$('btn-im').addEventListener('click',()=>setApp('im'));
+$('prev').addEventListener('click',()=>go(-1));
+$('next').addEventListener('click',()=>go(1));
+$('dots').addEventListener('click',e=>{const b=e.target.closest('button[data-step]');if(b){i=Number(b.dataset.step);render()}});
+document.querySelectorAll('#dia .node').forEach(g=>{
+g.addEventListener('click',()=>jump(g.dataset.box));
+g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();jump(g.dataset.box)}});
+});
+setApp(location.hash.slice(1)==='imessage'?'im':'wa');
+</script>
+</body>
+</html>
