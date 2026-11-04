@@ -21,15 +21,16 @@
 --wa-dot:#25D366;--im-dot:#0A84FF;
 --display:"Schibsted Grotesk","Helvetica Neue",Arial,sans-serif;--body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
 --brand:#008069;--on-brand:#fff;--hdr:#008069;--on-hdr:#fff;--av:#3A9C88;--chat:#EFEAE2;--sys:#fff;--out:#D9FDD3;--on-out:#111B21;--in:#fff;--on-in:#111B21;--meta:#5F6F78;--srv:#D9FDD3;--srv-st:#008069;--srv-t:#075E54;--srv-s:#00715D;--wire:#00A884;--warn:#B35C00;--sms:#34C759;--sms-t:#248A3D;
---app-font:"Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;--r-out:8px 0 8px 8px;--r-in:0 8px 8px 8px}
+--app-font:"Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;--r-out:8px 0 8px 8px;--r-in:0 8px 8px 8px;
+--hlink:#fff;--hbtn-bg:#fff;--hbtn-fg:#008069;--hdot:#66B3A5;--hdot-on:#fff}
 :root.im{--brand:#007AFF;--on-brand:#fff;--hdr:#F2F2F7;--on-hdr:#000;--av:#A2A2A8;--chat:#fff;--sys:#F2F2F7;--out:#007AFF;--on-out:#fff;--in:#E9E9EB;--on-in:#000;--meta:#6E6E73;--srv:#E5F0FF;--srv-st:#007AFF;--srv-t:#003F8A;--srv-s:#0060D0;--wire:#007AFF;
---app-font:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",sans-serif;--r-out:18px 18px 4px 18px;--r-in:18px 18px 18px 4px}
+--app-font:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",sans-serif;--r-out:18px 18px 4px 18px;--r-in:18px 18px 18px 4px;--hlink:#007AFF;--hbtn-bg:#007AFF;--hbtn-fg:#fff;--hdot:#C7C7CC;--hdot-on:#007AFF}
 @media (prefers-color-scheme:dark){
-:root:not([data-theme="light"]){--bg:#101315;--fg:#E7EBED;--fg-2:#A0A9AE;--fg-3:#838D92;--line:#262C30;--line-strong:#3A4247;--panel:#171B1E;--gray-fill:#22272A;--gray-st:#6E777C;--gray-t:#E2E6E8;--gray-s:#A5AEB2;--brand:#00A884;--on-brand:#111B21;--hdr:#202C33;--on-hdr:#E9EDEF;--av:#374248;--chat:#0B141A;--sys:#182229;--out:#005C4B;--on-out:#E9EDEF;--in:#202C33;--on-in:#E9EDEF;--meta:#8696A0;--srv:#103B35;--srv-st:#00A884;--srv-t:#E9EDEF;--srv-s:#7FD9C3;--wire:#00A884;--warn:#FFB340;--sms:#30D158;--sms-t:#30D158;color-scheme:dark}
-:root.im:not([data-theme="light"]){--brand:#0A84FF;--on-brand:#fff;--hdr:#1C1C1E;--on-hdr:#fff;--av:#636366;--chat:#000;--sys:#1C1C1E;--out:#0A84FF;--on-out:#fff;--in:#262629;--on-in:#fff;--meta:#98989F;--srv:#0B2A4F;--srv-st:#0A84FF;--srv-t:#fff;--srv-s:#8EC5FF;--wire:#0A84FF}
+:root:not([data-theme="light"]){--bg:#101315;--fg:#E7EBED;--fg-2:#A0A9AE;--fg-3:#838D92;--line:#262C30;--line-strong:#3A4247;--panel:#171B1E;--gray-fill:#22272A;--gray-st:#6E777C;--gray-t:#E2E6E8;--gray-s:#A5AEB2;--brand:#00A884;--on-brand:#111B21;--hdr:#202C33;--on-hdr:#E9EDEF;--av:#374248;--chat:#0B141A;--sys:#182229;--out:#005C4B;--on-out:#E9EDEF;--in:#202C33;--on-in:#E9EDEF;--meta:#8696A0;--srv:#103B35;--srv-st:#00A884;--srv-t:#E9EDEF;--srv-s:#7FD9C3;--wire:#00A884;--warn:#FFB340;--sms:#30D158;--sms-t:#30D158;--hlink:#00A884;--hbtn-bg:#00A884;--hbtn-fg:#111B21;--hdot:#3B4A54;--hdot-on:#00A884;color-scheme:dark}
+:root.im:not([data-theme="light"]){--brand:#0A84FF;--on-brand:#fff;--hdr:#1C1C1E;--on-hdr:#fff;--av:#636366;--chat:#000;--sys:#1C1C1E;--out:#0A84FF;--on-out:#fff;--in:#262629;--on-in:#fff;--meta:#98989F;--srv:#0B2A4F;--srv-st:#0A84FF;--srv-t:#fff;--srv-s:#8EC5FF;--wire:#0A84FF;--hlink:#0A84FF;--hbtn-bg:#0A84FF;--hbtn-fg:#fff;--hdot:#48484A;--hdot-on:#0A84FF}
 }
-:root[data-theme="dark"]{--bg:#101315;--fg:#E7EBED;--fg-2:#A0A9AE;--fg-3:#838D92;--line:#262C30;--line-strong:#3A4247;--panel:#171B1E;--gray-fill:#22272A;--gray-st:#6E777C;--gray-t:#E2E6E8;--gray-s:#A5AEB2;--brand:#00A884;--on-brand:#111B21;--hdr:#202C33;--on-hdr:#E9EDEF;--av:#374248;--chat:#0B141A;--sys:#182229;--out:#005C4B;--on-out:#E9EDEF;--in:#202C33;--on-in:#E9EDEF;--meta:#8696A0;--srv:#103B35;--srv-st:#00A884;--srv-t:#E9EDEF;--srv-s:#7FD9C3;--wire:#00A884;--warn:#FFB340;--sms:#30D158;--sms-t:#30D158;color-scheme:dark}
-:root.im[data-theme="dark"]{--brand:#0A84FF;--on-brand:#fff;--hdr:#1C1C1E;--on-hdr:#fff;--av:#636366;--chat:#000;--sys:#1C1C1E;--out:#0A84FF;--on-out:#fff;--in:#262629;--on-in:#fff;--meta:#98989F;--srv:#0B2A4F;--srv-st:#0A84FF;--srv-t:#fff;--srv-s:#8EC5FF;--wire:#0A84FF}
+:root[data-theme="dark"]{--bg:#101315;--fg:#E7EBED;--fg-2:#A0A9AE;--fg-3:#838D92;--line:#262C30;--line-strong:#3A4247;--panel:#171B1E;--gray-fill:#22272A;--gray-st:#6E777C;--gray-t:#E2E6E8;--gray-s:#A5AEB2;--brand:#00A884;--on-brand:#111B21;--hdr:#202C33;--on-hdr:#E9EDEF;--av:#374248;--chat:#0B141A;--sys:#182229;--out:#005C4B;--on-out:#E9EDEF;--in:#202C33;--on-in:#E9EDEF;--meta:#8696A0;--srv:#103B35;--srv-st:#00A884;--srv-t:#E9EDEF;--srv-s:#7FD9C3;--wire:#00A884;--warn:#FFB340;--sms:#30D158;--sms-t:#30D158;--hlink:#00A884;--hbtn-bg:#00A884;--hbtn-fg:#111B21;--hdot:#3B4A54;--hdot-on:#00A884;color-scheme:dark}
+:root.im[data-theme="dark"]{--brand:#0A84FF;--on-brand:#fff;--hdr:#1C1C1E;--on-hdr:#fff;--av:#636366;--chat:#000;--sys:#1C1C1E;--out:#0A84FF;--on-out:#fff;--in:#262629;--on-in:#fff;--meta:#98989F;--srv:#0B2A4F;--srv-st:#0A84FF;--srv-t:#fff;--srv-s:#8EC5FF;--wire:#0A84FF;--hlink:#0A84FF;--hbtn-bg:#0A84FF;--hbtn-fg:#fff;--hdot:#48484A;--hdot-on:#0A84FF}
 
 body{background:var(--bg);color:var(--fg);font:400 17px/1.6 var(--body);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:40px 64px;transition:background .3s}
 main{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:56px}
@@ -70,11 +71,16 @@ button:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
 .dia .node{cursor:pointer;transition:opacity .25s;outline:none}
 .dia .node:focus-visible rect{stroke-width:2.5}
 .chat{border:1px solid var(--line);border-radius:14px;overflow:hidden;font-family:var(--app-font)}
-.hdr{background:var(--hdr);color:var(--on-hdr);padding:10px 16px;display:flex;align-items:center;gap:12px;transition:background .3s}
-:root.im .hdr{flex-direction:column;gap:4px;text-align:center;border-bottom:1px solid var(--line)}
-.av{width:38px;height:38px;border-radius:50%;background:var(--av);display:inline-flex;align-items:center;justify-content:center;color:#fff;flex:none;font-size:20px}
+.hdr{background:var(--hdr);color:var(--on-hdr);padding:10px 14px;display:grid;grid-template-columns:auto auto minmax(0,1fr) auto;grid-template-areas:"back av mid next";align-items:center;gap:6px 12px;transition:background .3s}
+:root.im .hdr{grid-template-columns:auto minmax(0,1fr) auto;grid-template-areas:"back av next" "back mid next";text-align:center;border-bottom:1px solid var(--line)}
+:root.im .av{justify-self:center}
+.hmid{grid-area:mid;min-width:0}
+.hback{grid-area:back;color:var(--hlink);font:600 15px var(--app-font);display:inline-flex;align-items:center;gap:2px;padding:6px 2px}
+.hdr button:focus-visible{outline-color:var(--hdot-on)}
+.av{grid-area:av;width:38px;height:38px;border-radius:50%;background:var(--av);display:inline-flex;align-items:center;justify-content:center;color:#fff;flex:none;font-size:20px}
 .htitle{font-size:16px;font-weight:600;line-height:1.3}
-.hstep{font-size:12px}
+.hstep{font-size:12px;display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px}
+:root.im .hstep{justify-content:center}
 .body{background:var(--chat);padding:14px 16px 20px;min-height:260px;transition:background .3s}
 .lab{font-size:12px;color:var(--meta);margin:14px 0 4px}
 .row{display:flex}
@@ -88,12 +94,11 @@ button:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
 .pill{display:inline-flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px;font-size:12px;padding:4px 10px;border-radius:8px;background:var(--sys);color:var(--meta)}
 .chip{display:inline-block;font-size:12px;background:var(--sys);color:var(--meta);border-radius:999px;padding:3px 10px;margin:0 6px 6px 0}
 .note{display:flex;align-items:center;gap:10px;background:var(--sys);color:var(--on-in);border-radius:14px;padding:10px 14px;font-size:14px}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
-.dots{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
-.dots button{width:10px;height:10px;border-radius:50%;background:var(--line-strong);padding:0}
-.dots button.on{background:var(--brand)}
-.pri{background:var(--brand);color:var(--on-brand);border-radius:999px;padding:8px 20px;font:600 15px var(--display);transition:background .25s}
-.ghost{color:var(--brand);padding:8px 4px;font:600 15px var(--display);display:inline-flex;align-items:center;gap:4px}
+.dots{display:inline-flex;gap:5px}
+.dots button{width:8px;height:8px;border-radius:50%;background:var(--hdot);padding:0}
+.dots button.on{background:var(--hdot-on)}
+.pri{grid-area:next;background:var(--hbtn-bg);color:var(--hbtn-fg);border-radius:999px;padding:8px 18px;font:600 15px var(--app-font);transition:background .25s}
+@media (max-width:480px){.hback span{display:none}:root:not(.im) .av{display:none}}
 
 .trio{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px}
 .trio>div{border-top:1px solid var(--line-strong);padding-top:14px;display:flex;flex-direction:column;gap:6px;min-width:0}
@@ -173,8 +178,10 @@ footer a{color:var(--fg-2)}
 
 <div class="chat" aria-live="polite">
 <div class="hdr">
+<button id="prev" class="hback" type="button"><svg class="ic" aria-hidden="true"><use href="#i-back"/></svg><span>Back</span></button>
 <span class="av"><svg class="ic" aria-hidden="true"><use id="av-ic" href="#i-phone"/></svg></span>
-<div><div id="title" class="htitle">You type the message</div><div id="stepno" class="hstep">Step 1 of 7</div></div>
+<div class="hmid"><div id="title" class="htitle">You type the message</div><div class="hstep"><span id="stepno">Step 1 of 7</span><span id="dots" class="dots" role="group" aria-label="Steps"></span></div></div>
+<button id="next" class="pri" type="button">Next</button>
 </div>
 <div class="body">
 <div style="text-align:center"><span id="badge" class="pill">Can read it: yes · Only on your phone</span></div>
@@ -183,11 +190,6 @@ footer a{color:var(--fg-2)}
 </div>
 </div>
 
-<div class="nav">
-<button id="prev" class="ghost" type="button"><svg class="ic" aria-hidden="true"><use href="#i-back"/></svg>Back</button>
-<div id="dots" class="dots"></div>
-<button id="next" class="pri" type="button">Next</button>
-</div>
 </section>
 
 <section>
