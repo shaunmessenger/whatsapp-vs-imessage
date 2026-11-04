@@ -81,7 +81,9 @@ button:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
 .htitle{font-size:16px;font-weight:600;line-height:1.3}
 .hstep{font-size:12px;display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px}
 :root.im .hstep{justify-content:center}
-.body{background:var(--chat);padding:14px 16px 20px;min-height:260px;transition:background .3s}
+.explain{background:var(--panel);font-family:var(--body);padding:16px 18px;display:flex;flex-direction:column;align-items:flex-start;gap:10px;border-bottom:1px solid var(--line)}
+.explain-label{font:600 12px var(--display);letter-spacing:.08em;text-transform:uppercase;color:var(--fg-3);display:inline-flex;align-items:center;gap:6px}
+.body{background:var(--chat);padding:4px 16px 20px;min-height:190px;transition:background .3s}
 .lab{font-size:12px;color:var(--meta);margin:14px 0 4px}
 .row{display:flex}
 .b{display:inline-block;padding:7px 12px;font-size:15px;line-height:1.4;max-width:85%}
@@ -90,8 +92,8 @@ button:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
 .lock{background:var(--sys);color:var(--meta);border:1px dashed var(--meta);font-family:var(--mono);font-size:13px;border-radius:var(--r-out)}
 .sms{background:var(--sms);color:#fff;border-radius:18px 18px 4px 18px}
 .tm{font-size:11px;color:var(--meta);margin-left:10px;white-space:nowrap}
-.desc{background:var(--sys);color:var(--on-in);border-radius:12px;padding:12px 14px;font-size:15px;line-height:1.6;margin-top:10px}
-.pill{display:inline-flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px;font-size:12px;padding:4px 10px;border-radius:8px;background:var(--sys);color:var(--meta)}
+.desc{color:var(--fg);font-size:16px;line-height:1.6;max-width:68ch}
+.pill{display:inline-flex;flex-wrap:wrap;align-items:center;gap:6px;font:400 14px var(--body);padding:4px 12px;border-radius:999px;background:var(--bg);border:1px solid var(--line);color:var(--fg-2)}
 .chip{display:inline-block;font-size:12px;background:var(--sys);color:var(--meta);border-radius:999px;padding:3px 10px;margin:0 6px 6px 0}
 .note{display:flex;align-items:center;gap:10px;background:var(--sys);color:var(--on-in);border-radius:14px;padding:10px 14px;font-size:14px}
 .dots{display:inline-flex;gap:5px}
@@ -137,6 +139,7 @@ footer a{color:var(--fg-2)}
 <symbol id="i-book" viewBox="0 0 24 24"><path d="M6 4h11a1 1 0 0 1 1 1v15H7a2 2 0 0 1-2-2V5a1 1 0 0 1 1-1z"/><circle cx="12" cy="10" r="2"/><path d="M9 15a3 3 0 0 1 6 0"/></symbol>
 <symbol id="i-send" viewBox="0 0 24 24"><path d="M4 12 20 4l-4 16-4-7-8-1z"/><path d="M12 13l8-9"/></symbol>
 <symbol id="i-devices" viewBox="0 0 24 24"><rect x="3" y="5" width="13" height="10" rx="1.5"/><path d="M2 18h15"/><rect x="18" y="8" width="4" height="10" rx="1"/></symbol>
+<symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8v.5"/></symbol>
 <symbol id="i-msg" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4V5z"/></symbol>
 </svg>
 
@@ -183,9 +186,12 @@ footer a{color:var(--fg-2)}
 <div class="hmid"><div id="title" class="htitle">You type the message</div><div class="hstep"><span id="stepno">Step 1 of 7</span><span id="dots" class="dots" role="group" aria-label="Steps"></span></div></div>
 <button id="next" class="pri" type="button">Next</button>
 </div>
-<div class="body">
-<div style="text-align:center"><span id="badge" class="pill">Can read it: yes · Only on your phone</span></div>
+<div class="explain">
+<p class="explain-label"><svg class="ic" aria-hidden="true"><use href="#i-info"/></svg>What's happening</p>
 <p id="does" class="desc">You type a message to a friend and press send. Right now it exists only on your phone, in plain text.</p>
+<span id="badge" class="pill">Can read it: yes · Only on your phone</span>
+</div>
+<div class="body">
 <div id="payload"><div class="lab">What it has</div><div class="row" style="justify-content:flex-end"><div class="b out">Hey, how are you?<span class="tm">2:14 pm</span></div></div></div>
 </div>
 </div>
@@ -285,7 +291,7 @@ if(p.k==='sms')return L('What the carrier receives')+`<div class="lab" style="te
 return '';
 }
 function badge(r,n){
-const s={ok:['var(--brand)','eye','Can read it: yes'],no:['var(--meta)','lock','Can read it: no'],risk:['var(--warn)','alert','Can read it: yes']}[r];
+const s={ok:['var(--brand)','eye','Can read it: yes'],no:['var(--fg-2)','lock','Can read it: no'],risk:['var(--warn)','alert','Can read it: yes']}[r];
 return `${ic(s[1],`color:${s[0]};font-size:14px`)}<span style="color:${s[0]}">${s[2]}</span><span>· ${n}</span>`;
 }
 function render(){
