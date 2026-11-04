@@ -94,7 +94,9 @@ button:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
 .sms{background:var(--sms);color:#fff;border-radius:18px 18px 4px 18px}
 .tm{font-size:11px;color:var(--meta);margin-left:10px;white-space:nowrap}
 .desc{color:var(--fg);font-size:16px;line-height:1.6;max-width:68ch}
-.pill{display:inline-flex;flex-wrap:wrap;align-items:center;gap:6px;font:400 14px var(--body);padding:4px 12px;border-radius:999px;background:var(--bg);border:1px solid var(--line);color:var(--fg-2)}
+.verdict{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px}
+.pill{display:inline-flex;align-items:center;gap:6px;font:400 14px var(--body);padding:4px 12px;border-radius:999px;background:var(--bg);border:1px solid var(--line);white-space:nowrap}
+.vnote{font-size:14px;color:var(--fg-2)}
 .chip{display:inline-block;font-size:12px;background:var(--sys);color:var(--meta);border-radius:999px;padding:3px 10px;margin:0 6px 6px 0}
 .note{display:flex;align-items:center;gap:10px;background:var(--sys);color:var(--on-in);border-radius:14px;padding:10px 14px;font-size:14px}
 .dots{display:inline-flex;gap:5px}
@@ -192,7 +194,7 @@ footer a{color:var(--fg-2)}
 <div class="explain">
 <p class="explain-label"><svg class="ic" aria-hidden="true"><use href="#i-info"/></svg>What's happening</p>
 <p id="does" class="desc">You type a message to a friend and press send. Right now it exists only on your phone, in plain text.</p>
-<span id="badge" class="pill">Can read it: yes · Only on your phone</span>
+<div id="badge" class="verdict"><span class="pill">Can read it: yes</span><span class="vnote">Only on your phone</span></div>
 </div>
 <div class="body">
 <div id="payload"><div class="lab">What it has</div><div class="row" style="justify-content:flex-end"><div class="b out">Hey, how are you?<span class="tm">2:14 pm</span></div></div></div>
@@ -295,7 +297,7 @@ return '';
 }
 function badge(r,n){
 const s={ok:['var(--brand)','eye','Can read it: yes'],no:['var(--fg-2)','lock','Can read it: no'],risk:['var(--warn)','alert','Can read it: yes']}[r];
-return `${ic(s[1],`color:${s[0]};font-size:14px`)}<span style="color:${s[0]}">${s[2]}</span><span>· ${n}</span>`;
+return `<span class="pill">${ic(s[1],`color:${s[0]};font-size:14px`)}<span style="color:${s[0]}">${s[2]}</span></span><span class="vnote">${n}</span>`;
 }
 function render(){
 const a=A[app],s=a.S[i];
